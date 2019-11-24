@@ -1,3 +1,11 @@
+.wy-nav-content{
+    max-width: 100%
+}
+
+.wy-nav-side .ethical-rtd{
+    display: none;
+}
+
 .wy-side-nav-search>a, .wy-side-nav-search .wy-dropdown>a{
     color: yellow;
 }
