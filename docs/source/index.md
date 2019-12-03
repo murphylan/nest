@@ -11,9 +11,9 @@ Nest.js
    :numbered:
    :caption: 目录：
 
-   pages/start
-   pages/pattern
-   pages/lambda
+   pages/angular
+   pages/nest
+   pages/sphinx
 
 
 Indices and tables

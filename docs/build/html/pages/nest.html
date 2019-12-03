@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Nest.js培训 &mdash; nest  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Sphinx" href="sphinx.html" />
+    <link rel="prev" title="1. Angular培训" href="angular.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/sphinx.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="angular.html">1. Angular培训</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Nest.js培训</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.2. 安装 Nest.js</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module">2.3. 创建模块（module）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service">2.4. 新建 service 服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-books">2.5. Get books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inject-service-into-controller">2.6. Inject service into controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">3. Sphinx</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nest</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>2. Nest.js培训</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/nest.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nest-js">
+<h1>2. Nest.js培训<a class="headerlink" href="#nest-js" title="Permalink to this headline">¶</a></h1>
+<p>Nest.js是服务器端Node.js框架，用于构建高效，可靠和可扩展的应用程序。 由卡米尔（Kamil）建立，并得到许多知名组织和个人的支持。</p>
+<div class="section" id="prerequisites">
+<h2>2.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>熟悉TypeScript并具有一定的JavaScript知识将帮助您从本教程中获得最大收益。 具有使用Angular构建应用程序的经验将是一个加分，但不是必需的，因为本文将为您提供有关如何轻松开始的正确指南。</p>
+<p>您需要安装Node和npm。 建议在您的计算机上全局安装nodemon。</p>
+</div>
+<div class="section" id="id1">
+<h2>2.2. 安装 Nest.js<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>为了轻松构建新的Nest.js应用程序，您需要全局安装Nest CLI。 它是一个命令行界面工具，专门用于除其他外，帮助立即制作一个新的Nest.js应用程序，并提供对（内置生成器的）多个命令的访问权限，以生成不同的文件并生成结构良好的应用程序。</p>
+<p>除了使用CLI工具之外，您还可以通过使用Git从GitHub克隆启动项目来安装新的Nest.js应用程序，但出于本教程的目的，请运行以下命令来安装Nest CLI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">i</span> <span class="o">-</span><span class="n">g</span> <span class="nd">@nestjs</span><span class="o">/</span><span class="n">cli</span>
+</pre></div>
+</div>
+<p>这将使您可以访问用于安装项目的nest命令和其他特定于项目的命令。</p>
+<p>接下来，运行以下命令以在开发文件夹中安装一个名为bookstore-nest的新项目:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nest</span> <span class="n">new</span> <span class="n">bookstore</span><span class="o">-</span><span class="n">nest</span>
+</pre></div>
+</div>
+<p>在安装过程中，系统将询问您几个问题，只需按照提示进行操作，然后做出相应的响应即可。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>MacBook-Pro:training-nest murphy$ nest new bookstore-nest
+⚡  We will scaffold your app in a few seconds..
+
+CREATE /bookstore-nest/.prettierrc <span class="o">(</span><span class="m">51</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/README.md <span class="o">(</span><span class="m">3370</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/nest-cli.json <span class="o">(</span><span class="m">64</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/package.json <span class="o">(</span><span class="m">1697</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/tsconfig.build.json <span class="o">(</span><span class="m">97</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/tsconfig.json <span class="o">(</span><span class="m">336</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/tslint.json <span class="o">(</span><span class="m">426</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/src/app.controller.spec.ts <span class="o">(</span><span class="m">617</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/src/app.controller.ts <span class="o">(</span><span class="m">274</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/src/app.module.ts <span class="o">(</span><span class="m">249</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/src/app.service.ts <span class="o">(</span><span class="m">142</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/src/main.ts <span class="o">(</span><span class="m">208</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/test/app.e2e-spec.ts <span class="o">(</span><span class="m">561</span> bytes<span class="o">)</span>
+CREATE /bookstore-nest/test/jest-e2e.json <span class="o">(</span><span class="m">183</span> bytes<span class="o">)</span>
+
+? Which package manager would you ❤️ to use? npm
+✔ Installation in progress... ☕
+
+🚀  Successfully created project bookstore-nest
+👉  Get started with the following commands:
+
+$ <span class="nb">cd</span> bookstore-nest
+$ npm run start
+
+
+                                            Thanks <span class="k">for</span> installing Nest 🙏
+                                Please consider donating to our open collective
+                                        to <span class="nb">help</span> us maintain this package.
+
+
+                                🍷  Donate: https://opencollective.com/nest
+
+MacBook-Pro:training-nest murphy$
+</pre></div>
+</div>
+<p>接下来，安装完成后，将目录更改为新创建的项目，并使用以下命令启动应用程序:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">进入项目根目录</span>
+<span class="n">cd</span> <span class="n">bookstore</span><span class="o">-</span><span class="n">nest</span>
+
+<span class="o">//</span> <span class="n">启动应用程序</span>
+<span class="n">npm</span> <span class="n">run</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>或更妙的是，运行以下命令以将Nodemon用于项目:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">start</span> <span class="n">the</span> <span class="n">application</span> <span class="n">using</span> <span class="n">nodemon</span>
+<span class="n">npm</span> <span class="n">run</span> <span class="n">start</span><span class="p">:</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>从浏览器导航到http://localhost:3000 ，将看到Hello World！ 消息如下所示：</p>
+<a class="reference internal image-reference" href="../_images/nest_1.png"><img alt="alternate text" src="../_images/nest_1.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="module">
+<h2>2.3. 创建模块（module）<a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<p>首先，您将为bookstore生成一个模块(module)。 为此，您将使用 <code class="docutils literal notranslate"><span class="pre">Nest</span> <span class="pre">CLI</span></code> 利用内置文件生成器。 运行以下命令为应用程序搭建新模块:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nest</span> <span class="n">generate</span> <span class="n">module</span> <span class="n">books</span>
+<span class="n">或者</span>
+<span class="n">nest</span> <span class="n">g</span> <span class="n">mo</span> <span class="n">books</span>
+</pre></div>
+</div>
+<p>上面的命令将在src文件夹中创建一个名为books的新文件夹。 同样在books文件夹中，将找到一个books.module.ts文件。</p>
+</div>
+<div class="section" id="service">
+<h2>2.4. 新建 service 服务<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h2>
+<p>由于我们暂时不会真正连接到数据库，因此请为bookstore创建一个示例模拟数据。 在books文件夹下，创建一个名为books.mock.ts的新TypeScript文件，并将以下代码粘贴到其中：</p>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kr">const</span> <span class="nx">BOOKS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">id</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;First book&#39;</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;This is the description for the first book&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Olususi Oluyemi&#39;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">id</span>: <span class="kt">2</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Second book&#39;</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;This is the description for the second book&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;John Barry&#39;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">id</span>: <span class="kt">3</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Third book&#39;</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;This is the description for the third book&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Clement Wilfred&#39;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">id</span>: <span class="kt">4</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Fourth book&#39;</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;This is the description for the fourth book&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Christian nwamba&#39;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">id</span>: <span class="kt">5</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Fifth book&#39;</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;This is the description for the fifth book&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Chris anderson&#39;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">id</span>: <span class="kt">6</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Sixth book&#39;</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;This is the description for the sixth book&quot;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Olususi Oluyemi&#39;</span> <span class="p">},</span>
+<span class="p">];</span>
+</pre></div>
+</td></tr></table></div>
+<p>接下来，创建一个服务来保存bookstore的所有逻辑。 运行以下命令以生成服务:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nest</span> <span class="n">generate</span> <span class="n">service</span> <span class="n">books</span>
+<span class="n">或者</span>
+<span class="n">nest</span> <span class="n">g</span> <span class="n">s</span> <span class="n">books</span>
+</pre></div>
+</div>
+<p>此命令将在./src/books文件夹中创建一个名为books.service.ts的新文件。</p>
+</div>
+<div class="section" id="get-books">
+<h2>2.5. Get books<a class="headerlink" href="#get-books" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BOOKS</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.mock&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Observable</span><span class="p">,</span> <span class="nx">of</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BooksService</span> <span class="p">{</span>
+
+    <span class="nx">getBooks</span><span class="p">()</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">of</span><span class="p">(</span><span class="nx">BOOKS</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">books</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>注意：of(BOOKS) 和 from(BOOKS) 的区别。</p>
+<ol class="arabic simple">
+<li>of(BOOKS) 返回全部的数组</li>
+<li>from(BOOKS) 返回数组的最后一条记录</li>
+</ol>
+</div>
+<div class="section" id="inject-service-into-controller">
+<h2>2.6. Inject service into controller<a class="headerlink" href="#inject-service-into-controller" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Controller</span><span class="p">,</span> <span class="nx">Get</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BooksService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.service&#39;</span><span class="p">;</span>
+
+<span class="kd">@Controller</span><span class="p">(</span><span class="s1">&#39;books&#39;</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BooksController</span> <span class="p">{</span>
+
+    <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">booksService</span>: <span class="kt">BooksService</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="kd">@Get</span><span class="p">()</span>
+    <span class="nx">async</span> <span class="nx">getBooks() {</span>
+        <span class="kr">const</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">booksService</span><span class="p">.</span><span class="nx">getBooks</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">books</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>从浏览器导航到http://localhost:3000/books ，将看到books的全部信息。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sphinx.html" class="btn btn-neutral float-right" title="3. Sphinx" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="angular.html" class="btn btn-neutral" title="1. Angular培训" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Murphy
+
+    </p>
+  </div>
+  Built with <a href="http://docedit.cn/">http://docedit.cn/</a> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -205,4 +205,4 @@ epub_exclude_files = ['search.html']
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 html_favicon = 'favicon.ico'
-html_logo = 'cat-the-behemoth.svg'
+html_logo = 'sphinx.svg'
