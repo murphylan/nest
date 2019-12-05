@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Nest.js培训 &mdash; nest  documentation</title>
+  <title>2. NestJS培训 &mdash; nest  documentation</title>
   
 
   
@@ -87,13 +87,22 @@
               <p class="caption"><span class="caption-text">目录：</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="angular.html">1. Angular培训</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Nest.js培训</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">2.2. 安装 Nest.js</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module">2.3. 创建模块（module）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#service">2.4. 新建 service 服务</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#get-books">2.5. Get books</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#inject-service-into-controller">2.6. Inject service into controller</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. NestJS培训</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. 模块化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.3. 面向切面编程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#middlewares">2.3.1. Middlewares</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guards">2.3.2. Guards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interceptors">2.3.3. Interceptors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipes">2.3.4. Pipes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.4. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2.5. 安装 NestJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module">2.6. 创建模块（module）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#service">2.7. 新建 service 服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-books">2.8. Get books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inject-service-into-controller">2.9. Inject service into controller</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">3. Sphinx</a></li>
@@ -142,7 +151,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. Nest.js培训</li>
+      <li>2. NestJS培训</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,18 +170,244 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="nest-js">
-<h1>2. Nest.js培训<a class="headerlink" href="#nest-js" title="Permalink to this headline">¶</a></h1>
-<p>Nest.js是服务器端Node.js框架，用于构建高效，可靠和可扩展的应用程序。 由卡米尔（Kamil）建立，并得到许多知名组织和个人的支持。</p>
+  <div class="section" id="nestjs">
+<h1>2. NestJS培训<a class="headerlink" href="#nestjs" title="Permalink to this headline">¶</a></h1>
+<p>NestJS是服务器端Node.js框架，用于构建高效，可靠和可扩展的应用程序。 由卡米尔（Kamil）建立，并得到许多知名组织和个人的支持。</p>
+<p>NestJS是 Node 渐进式框架，底层默认使用 express（可以通过 Adapter 转换到 fastify），可以使用 express 或者 fastify 所有中间件，完美支持 TypeScript。熟悉 Spring 和 Angular 的同学可以很快上手 NestJS，它大量借鉴了 Spring 和 Angular 中的设计思想。</p>
+<p>在开始写hello world之前，我们先来看看NestJS中比较重要的设计思想和概念。</p>
+<div class="section" id="id1">
+<h2>2.1. 依赖注入<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>依赖注入（Dependency Injection，简称DI）是面向对象中控制反转（Inversion of Control，简称 IoC）最常见的实现方式，主要用来降低代码的耦合度。我们用一个例子来说明什么是控制反转。</p>
+<p>IoC 有很多实现，比如 Java 的 Spring ，PHP 的 Laravel ，前端的 Angular2+ 以及 Node 的 Nestjs等。</p>
+<p>在 Nestjs 中，通过&#64;Injectable装饰器向 IoC 容器注册：</p>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BOOKS</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.mock&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Observable</span><span class="p">,</span> <span class="nx">of</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BooksService</span> <span class="p">{</span>
+
+    <span class="nx">getBooks</span><span class="p">()</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">of</span><span class="p">(</span><span class="nx">BOOKS</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">books</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>在构造函数中注入BooksService的实例：</p>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Controller</span><span class="p">,</span> <span class="nx">Get</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BooksService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.service&#39;</span><span class="p">;</span>
+
+<span class="kd">@Controller</span><span class="p">(</span><span class="s1">&#39;books&#39;</span><span class="p">)</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BooksController</span> <span class="p">{</span>
+
+    <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">booksService</span>: <span class="kt">BooksService</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="kd">@Get</span><span class="p">()</span>
+    <span class="nx">async</span> <span class="nx">getBooks() {</span>
+        <span class="kr">const</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">booksService</span><span class="p">.</span><span class="nx">getBooks</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">books</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>BooksService作为一个privider，需要在module中注册，这样在该module启动时，会解析module中所有的依赖，当module销毁时，provider也会一起销毁。</p>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BooksController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.controller&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BooksService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.service&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+<span class="nx">controllers</span><span class="o">:</span> <span class="p">[</span><span class="nx">BooksController</span><span class="p">],</span>
+<span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">BooksService</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BooksModule</span> <span class="p">{}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id2">
+<h2>2.2. 模块化<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>NestJS 提供了一个模块化结构，用于将同一领域内的代码组织成单独的模块。模块化的作用就是可以清晰地组织你的应用，并使用外部库扩展应用。</p>
+<p>Module 把controller、service和pipe等打包成内聚的功能块，每个模块聚焦于一个特性区域、业务领域、工作流或通用工具。</p>
+<p>在 NestJS 中通过&#64;Module装饰器声明一个模块，&#64;Module接受一个描述模块属性的对象:</p>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Module</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">CoreModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./core/core.module&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BooksController</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.controller&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BooksService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./books.service&#39;</span><span class="p">;</span>
+
+<span class="kd">@Module</span><span class="p">({</span>
+<span class="nx">controllers</span><span class="o">:</span> <span class="p">[</span><span class="nx">BooksController</span><span class="p">],</span>
+<span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">BooksService</span><span class="p">]</span>
+<span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">CoreModule</span><span class="p">],</span>
+<span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">BooksService</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">BooksModule</span> <span class="p">{}</span>
+</pre></div>
+</td></tr></table></div>
+<p>每个属于这个模块的controller、service等都需要在这个模块中注册，如果需要引入其他模块或者第三方模块，需要将它注册到imports，通过exports可以将相应的service、module等共享出去。</p>
+</div>
+<div class="section" id="id3">
+<h2>2.3. 面向切面编程<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>面向切面编程（Aspect Oriented Programming，简称AOP）主要是针对业务处理过程中的切面进行提取，在某个步骤和阶段进行一些操作，从而达到 DRY（Don’t Repeat Yourself） 的目的。AOP 对 OOP 来说，是一种补充，比如可以在某一切面中对全局的 Log、错误进行处理，这种一刀切的方式，也就意味着，AOP 的处理方式相对比较粗粒度。</p>
+<p>在 Nestjs 中，AOP 分为下面几个部分（按顺序排列）：</p>
+<ol class="arabic simple">
+<li>Middlewares</li>
+<li>Guards</li>
+<li>Interceptors (在Request流被操纵之前)</li>
+<li>Pipes</li>
+<li>Interceptors (在Request流被操纵之后)</li>
+<li>Exception filters (如果发现任何异常)</li>
+</ol>
+<div class="section" id="middlewares">
+<h3>2.3.1. Middlewares<a class="headerlink" href="#middlewares" title="Permalink to this headline">¶</a></h3>
+<p>Middleware 和 express 的中间件一样，你可以直接使用 express 中的中间件：</p>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NestFactory</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/core&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">AppModule</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./app.module&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Logger</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">port</span>: <span class="kt">3000</span><span class="p">,</span>
+    <span class="nx">hostName</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span>
+<span class="p">}</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">bootstrap() {</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">NestFactory</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">);</span>
+<span class="c1">// await app.listen(3000);</span>
+<span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">port</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">hostName</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">Logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="sb">`NestJS API server has been started on http://</span><span class="si">${</span><span class="nx">config</span><span class="p">.</span><span class="nx">hostName</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">config</span><span class="p">.</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">})</span>
+<span class="p">}</span>
+<span class="nx">bootstrap</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="guards">
+<h3>2.3.2. Guards<a class="headerlink" href="#guards" title="Permalink to this headline">¶</a></h3>
+<p>Guards 和前端路由中的路由守卫一样，主要确定请求是否应该由路由处理程序处理。
+中间件不知道调用 next() 函数后会执行哪个处理程序。另一方面，Guards守卫可以访问 ExecutionContext 实例，因此确切地知道接下来要执行什么。它们的设计与异常过滤器、管道和拦截器非常相似，目的是在请求/响应周期的正确位置插入处理逻辑，并以声明的方式进行插入。这有助于保持代码的简洁和声明性。</p>
+<p>守卫在每个中间件之后执行的，但在拦截器和管道之前。</p>
+<div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span><span class="p">,</span> <span class="nx">CanActivate</span><span class="p">,</span> <span class="nx">ExecutionContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@nestjs/common&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Observable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+
+<span class="kd">@Injectable</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthGuard</span> <span class="kr">implements</span> <span class="nx">CanActivate</span> <span class="p">{</span>
+    <span class="nx">canActivate</span><span class="p">(</span>
+        <span class="nx">context</span>: <span class="kt">ExecutionContext</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span> <span class="o">|</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="o">|</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">switchToHttp</span><span class="p">().</span><span class="nx">getRequest</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">validateRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>validateRequest() 函数中的逻辑可以根据需要变得简单或复杂。本例的主要目的是说明保护如何适应请求/响应周期。</p>
+<p>每个保护必须实现一个canActivate()函数。此函数应该返回一个布尔值，指示是否允许当前请求。它可以同步或异步地返回响应(通过 Promise 或 Observable)。Nest使用返回值来控制下一个行为:</p>
+<ol class="arabic simple">
+<li>如果返回 true, 将处理用户调用。</li>
+<li>如果返回 false, 则 Nest 将忽略当前处理的请求。</li>
+</ol>
+</div>
+<div class="section" id="interceptors">
+<h3>2.3.3. Interceptors<a class="headerlink" href="#interceptors" title="Permalink to this headline">¶</a></h3>
+<p>Interceptors 可以给每一个需要执行的函数绑定，拦截器将在该函数执行前或者执行后运行。</p>
+<p>拦截器具有一系列有用的功能，这些功能受面向切面编程（AOP）技术的启发。它们可以：</p>
+<ul class="simple">
+<li>在函数执行之前/之后绑定额外的逻辑</li>
+<li>转换从函数返回的结果</li>
+<li>转换从函数抛出的异常</li>
+<li>扩展基本函数行为</li>
+<li>根据所选条件完全重写函数 (例如, 缓存目的)</li>
+</ul>
+</div>
+<div class="section" id="pipes">
+<h3>2.3.4. Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">¶</a></h3>
+<p>Pipe 是具有 &#64;Injectable() 装饰器的类，并实现了 PipeTransform 接口。通常 pipe 用来将输入数据转换为所需的输出或者处理验证。</p>
+</div>
+</div>
 <div class="section" id="prerequisites">
-<h2>2.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h2>2.4. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>熟悉TypeScript并具有一定的JavaScript知识将帮助您从本教程中获得最大收益。 具有使用Angular构建应用程序的经验将是一个加分，但不是必需的，因为本文将为您提供有关如何轻松开始的正确指南。</p>
 <p>您需要安装Node和npm。 建议在您的计算机上全局安装nodemon。</p>
 </div>
-<div class="section" id="id1">
-<h2>2.2. 安装 Nest.js<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>为了轻松构建新的Nest.js应用程序，您需要全局安装Nest CLI。 它是一个命令行界面工具，专门用于除其他外，帮助立即制作一个新的Nest.js应用程序，并提供对（内置生成器的）多个命令的访问权限，以生成不同的文件并生成结构良好的应用程序。</p>
-<p>除了使用CLI工具之外，您还可以通过使用Git从GitHub克隆启动项目来安装新的Nest.js应用程序，但出于本教程的目的，请运行以下命令来安装Nest CLI:</p>
+<div class="section" id="id4">
+<h2>2.5. 安装 NestJS<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>为了轻松构建新的NestJS应用程序，您需要全局安装Nest CLI。 它是一个命令行界面工具，专门用于除其他外，帮助立即制作一个新的NestJS应用程序，并提供对（内置生成器的）多个命令的访问权限，以生成不同的文件并生成结构良好的应用程序。</p>
+<p>除了使用CLI工具之外，您还可以通过使用Git从GitHub克隆启动项目来安装新的NestJS应用程序，但出于本教程的目的，请运行以下命令来安装Nest CLI:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">i</span> <span class="o">-</span><span class="n">g</span> <span class="nd">@nestjs</span><span class="o">/</span><span class="n">cli</span>
 </pre></div>
 </div>
@@ -237,7 +472,7 @@ MacBook-Pro:training-nest murphy$
 <a class="reference internal image-reference" href="../_images/nest_1.png"><img alt="alternate text" src="../_images/nest_1.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="module">
-<h2>2.3. 创建模块（module）<a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<h2>2.6. 创建模块（module）<a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
 <p>首先，您将为bookstore生成一个模块(module)。 为此，您将使用 <code class="docutils literal notranslate"><span class="pre">Nest</span> <span class="pre">CLI</span></code> 利用内置文件生成器。 运行以下命令为应用程序搭建新模块:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nest</span> <span class="n">generate</span> <span class="n">module</span> <span class="n">books</span>
 <span class="n">或者</span>
@@ -247,7 +482,7 @@ MacBook-Pro:training-nest murphy$
 <p>上面的命令将在src文件夹中创建一个名为books的新文件夹。 同样在books文件夹中，将找到一个books.module.ts文件。</p>
 </div>
 <div class="section" id="service">
-<h2>2.4. 新建 service 服务<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h2>
+<h2>2.7. 新建 service 服务<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h2>
 <p>由于我们暂时不会真正连接到数据库，因此请为bookstore创建一个示例模拟数据。 在books文件夹下，创建一个名为books.mock.ts的新TypeScript文件，并将以下代码粘贴到其中：</p>
 <div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -275,7 +510,7 @@ MacBook-Pro:training-nest murphy$
 <p>此命令将在./src/books文件夹中创建一个名为books.service.ts的新文件。</p>
 </div>
 <div class="section" id="get-books">
-<h2>2.5. Get books<a class="headerlink" href="#get-books" title="Permalink to this headline">¶</a></h2>
+<h2>2.8. Get books<a class="headerlink" href="#get-books" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -301,14 +536,14 @@ MacBook-Pro:training-nest murphy$
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>注意：of(BOOKS) 和 from(BOOKS) 的区别。</p>
+<p>注意：因为Nest订阅了返回的流，并使用此流生成的值来为最终用户创建单个响应或多个响应。</p>
 <ol class="arabic simple">
 <li>of(BOOKS) 返回全部的数组</li>
 <li>from(BOOKS) 返回数组的最后一条记录</li>
 </ol>
 </div>
 <div class="section" id="inject-service-into-controller">
-<h2>2.6. Inject service into controller<a class="headerlink" href="#inject-service-into-controller" title="Permalink to this headline">¶</a></h2>
+<h2>2.9. Inject service into controller<a class="headerlink" href="#inject-service-into-controller" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-TypeScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3

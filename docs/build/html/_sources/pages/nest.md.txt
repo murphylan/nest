@@ -1,8 +1,197 @@
 #################
-Nest.js培训
+NestJS培训
 #################
 
-Nest.js是服务器端Node.js框架，用于构建高效，可靠和可扩展的应用程序。 由卡米尔（Kamil）建立，并得到许多知名组织和个人的支持。
+NestJS是服务器端Node.js框架，用于构建高效，可靠和可扩展的应用程序。 由卡米尔（Kamil）建立，并得到许多知名组织和个人的支持。
+
+NestJS是 Node 渐进式框架，底层默认使用 express（可以通过 Adapter 转换到 fastify），可以使用 express 或者 fastify 所有中间件，完美支持 TypeScript。熟悉 Spring 和 Angular 的同学可以很快上手 NestJS，它大量借鉴了 Spring 和 Angular 中的设计思想。
+
+在开始写hello world之前，我们先来看看NestJS中比较重要的设计思想和概念。
+
+依赖注入
+============
+
+依赖注入（Dependency Injection，简称DI）是面向对象中控制反转（Inversion of Control，简称 IoC）最常见的实现方式，主要用来降低代码的耦合度。我们用一个例子来说明什么是控制反转。
+
+IoC 有很多实现，比如 Java 的 Spring ，PHP 的 Laravel ，前端的 Angular2+ 以及 Node 的 Nestjs等。
+
+在 Nestjs 中，通过@Injectable装饰器向 IoC 容器注册：
+
+.. code-block:: TypeScript
+    :linenos:
+
+    import { Injectable } from '@nestjs/common';
+    import { BOOKS } from './books.mock';
+    import { Observable, of} from 'rxjs';
+
+    @Injectable()
+    export class BooksService {
+
+        getBooks(): Observable<any> {
+            let books = of(BOOKS);
+            return books;
+        }
+    }
+
+
+在构造函数中注入BooksService的实例：
+
+.. code-block:: TypeScript
+    :linenos:
+
+    import { Controller, Get } from '@nestjs/common';
+    import { BooksService } from './books.service';
+
+    @Controller('books')
+    export class BooksController {
+
+        constructor(private booksService: BooksService) { }
+
+        @Get()
+        async getBooks() {
+            const books = await this.booksService.getBooks();
+            return books;
+        }
+
+    }
+
+
+BooksService作为一个privider，需要在module中注册，这样在该module启动时，会解析module中所有的依赖，当module销毁时，provider也会一起销毁。
+
+.. code-block:: TypeScript
+    :linenos:
+
+    import { Module } from '@nestjs/common';
+    import { BooksController } from './books.controller';
+    import { BooksService } from './books.service';
+
+    @Module({
+    controllers: [BooksController],
+    providers: [BooksService]
+    })
+    export class BooksModule {}
+
+
+模块化
+=========
+
+NestJS 提供了一个模块化结构，用于将同一领域内的代码组织成单独的模块。模块化的作用就是可以清晰地组织你的应用，并使用外部库扩展应用。
+
+Module 把controller、service和pipe等打包成内聚的功能块，每个模块聚焦于一个特性区域、业务领域、工作流或通用工具。
+
+在 NestJS 中通过@Module装饰器声明一个模块，@Module接受一个描述模块属性的对象:
+
+.. code-block:: TypeScript
+    :linenos:
+
+    import { Module } from '@nestjs/common';
+    import { CoreModule } from './core/core.module';
+    import { BooksController } from './books.controller';
+    import { BooksService } from './books.service';
+
+    @Module({
+    controllers: [BooksController],
+    providers: [BooksService]
+    imports: [CoreModule],
+    exports: [BooksService]
+    })
+    export class BooksModule {}
+
+
+每个属于这个模块的controller、service等都需要在这个模块中注册，如果需要引入其他模块或者第三方模块，需要将它注册到imports，通过exports可以将相应的service、module等共享出去。
+
+
+面向切面编程
+================
+面向切面编程（Aspect Oriented Programming，简称AOP）主要是针对业务处理过程中的切面进行提取，在某个步骤和阶段进行一些操作，从而达到 DRY（Don’t Repeat Yourself） 的目的。AOP 对 OOP 来说，是一种补充，比如可以在某一切面中对全局的 Log、错误进行处理，这种一刀切的方式，也就意味着，AOP 的处理方式相对比较粗粒度。
+
+在 Nestjs 中，AOP 分为下面几个部分（按顺序排列）：
+
+#. Middlewares
+#. Guards
+#. Interceptors (在Request流被操纵之前)
+#. Pipes
+#. Interceptors (在Request流被操纵之后)
+#. Exception filters (如果发现任何异常)
+
+
+Middlewares
+***************
+
+Middleware 和 express 的中间件一样，你可以直接使用 express 中的中间件：
+
+.. code-block:: TypeScript
+    :linenos:
+
+    import { NestFactory } from '@nestjs/core';
+    import { AppModule } from './app.module';
+    import { Logger } from '@nestjs/common';
+
+    const config = {
+        port: 3000,
+        hostName: 'localhost'
+    }
+
+    async function bootstrap() {
+    const app = await NestFactory.create(AppModule);
+    // await app.listen(3000);
+    await app.listen(config.port, config.hostName, () => {
+        Logger.log(
+        `NestJS API server has been started on http://${config.hostName}:${config.port}`,
+        )
+    })
+    }
+    bootstrap();
+
+
+Guards
+**********
+Guards 和前端路由中的路由守卫一样，主要确定请求是否应该由路由处理程序处理。
+中间件不知道调用 next() 函数后会执行哪个处理程序。另一方面，Guards守卫可以访问 ExecutionContext 实例，因此确切地知道接下来要执行什么。它们的设计与异常过滤器、管道和拦截器非常相似，目的是在请求/响应周期的正确位置插入处理逻辑，并以声明的方式进行插入。这有助于保持代码的简洁和声明性。
+
+守卫在每个中间件之后执行的，但在拦截器和管道之前。
+
+.. code-block:: TypeScript
+    :linenos:
+
+    import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+    import { Observable } from 'rxjs';
+
+    @Injectable()
+    export class AuthGuard implements CanActivate {
+        canActivate(
+            context: ExecutionContext,
+        ): boolean | Promise<boolean> | Observable<boolean> {
+            const request = context.switchToHttp().getRequest();
+            return validateRequest(request);
+        }
+    }
+
+validateRequest() 函数中的逻辑可以根据需要变得简单或复杂。本例的主要目的是说明保护如何适应请求/响应周期。
+
+每个保护必须实现一个canActivate()函数。此函数应该返回一个布尔值，指示是否允许当前请求。它可以同步或异步地返回响应(通过 Promise 或 Observable)。Nest使用返回值来控制下一个行为:
+
+#. 如果返回 true, 将处理用户调用。
+#. 如果返回 false, 则 Nest 将忽略当前处理的请求。
+
+
+Interceptors
+********************
+Interceptors 可以给每一个需要执行的函数绑定，拦截器将在该函数执行前或者执行后运行。
+
+拦截器具有一系列有用的功能，这些功能受面向切面编程（AOP）技术的启发。它们可以：
+
+* 在函数执行之前/之后绑定额外的逻辑
+* 转换从函数返回的结果
+* 转换从函数抛出的异常
+* 扩展基本函数行为
+* 根据所选条件完全重写函数 (例如, 缓存目的)
+
+
+Pipes
+**********
+Pipe 是具有 @Injectable() 装饰器的类，并实现了 PipeTransform 接口。通常 pipe 用来将输入数据转换为所需的输出或者处理验证。
+
 
 Prerequisites
 ================
@@ -10,12 +199,12 @@ Prerequisites
 
 您需要安装Node和npm。 建议在您的计算机上全局安装nodemon。
 
-安装 Nest.js
+安装 NestJS
 =====================
 
-为了轻松构建新的Nest.js应用程序，您需要全局安装Nest CLI。 它是一个命令行界面工具，专门用于除其他外，帮助立即制作一个新的Nest.js应用程序，并提供对（内置生成器的）多个命令的访问权限，以生成不同的文件并生成结构良好的应用程序。
+为了轻松构建新的NestJS应用程序，您需要全局安装Nest CLI。 它是一个命令行界面工具，专门用于除其他外，帮助立即制作一个新的NestJS应用程序，并提供对（内置生成器的）多个命令的访问权限，以生成不同的文件并生成结构良好的应用程序。
 
-除了使用CLI工具之外，您还可以通过使用Git从GitHub克隆启动项目来安装新的Nest.js应用程序，但出于本教程的目的，请运行以下命令来安装Nest CLI::
+除了使用CLI工具之外，您还可以通过使用Git从GitHub克隆启动项目来安装新的NestJS应用程序，但出于本教程的目的，请运行以下命令来安装Nest CLI::
 
     npm i -g @nestjs/cli
 
@@ -144,7 +333,7 @@ Get books
         }
     }
 
-注意：of(BOOKS) 和 from(BOOKS) 的区别。
+注意：因为Nest订阅了返回的流，并使用此流生成的值来为最终用户创建单个响应或多个响应。
 
 #. of(BOOKS) 返回全部的数组
 #. from(BOOKS) 返回数组的最后一条记录
