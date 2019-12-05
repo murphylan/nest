@@ -9,7 +9,7 @@ Nest.js
 .. toctree::
    :maxdepth: 3
    :numbered:
-   :caption: 目录：
+   :caption: 培训项目：
 
    pages/angular
    pages/nest
