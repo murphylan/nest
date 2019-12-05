@@ -69,16 +69,14 @@ note
 
 .. admonition:: 文字随便写
 
-   Extensions local to a project should be put within the project’s directory structure.
-   Set Python’s module search path, sys.path, accordingly so that Sphinx can find them.
-   E.g., if your extension foo.py lies in the exts subdirectory of the project root,
+   这里写文字。
    put into conf.py::
    
       import sys, os
       sys.path.append(os.path.abspath('exts'))
       extensions = ['foo']
    
-   You can also install extensions anywhere else on sys.path, e.g. in the site-packages directory.
+   这里也可以写文字。
 
 ::
 
@@ -89,16 +87,14 @@ note
 
    .. admonition:: 文字随便写
 
-      Extensions local to a project should be put within the project’s directory structure.
-      Set Python’s module search path, sys.path, accordingly so that Sphinx can find them.
-      E.g., if your extension foo.py lies in the exts subdirectory of the project root,
+      这里写文字。
       put into conf.py::
       
          import sys, os
          sys.path.append(os.path.abspath('exts'))
          extensions = ['foo']
       
-      You can also install extensions anywhere else on sys.path, e.g. in the site-packages directory.
+      这里也可以写文字。
 
 
 color

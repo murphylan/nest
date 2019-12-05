@@ -248,16 +248,14 @@ today_fmt = &#39;%Y-%m-%d&#39; #&#39;%B %d, %Y&#39;
 </div>
 <div class="admonition- admonition">
 <p class="first admonition-title">文字随便写</p>
-<p>Extensions local to a project should be put within the project’s directory structure.
-Set Python’s module search path, sys.path, accordingly so that Sphinx can find them.
-E.g., if your extension foo.py lies in the exts subdirectory of the project root,
+<p>这里写文字。
 put into conf.py:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;exts&#39;</span><span class="p">))</span>
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p class="last">You can also install extensions anywhere else on sys.path, e.g. in the site-packages directory.</p>
+<p class="last">这里也可以写文字。</p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. seealso:: This is a simple **seealso** note.
 .. note:: This is a simple **note** note.
@@ -266,16 +264,14 @@ put into conf.py:</p>
 
 .. admonition:: 文字随便写
 
-   Extensions local to a project should be put within the project’s directory structure.
-   Set Python’s module search path, sys.path, accordingly so that Sphinx can find them.
-   E.g., if your extension foo.py lies in the exts subdirectory of the project root,
+   这里写文字。
    put into conf.py::
 
       import sys, os
       sys.path.append(os.path.abspath(&#39;exts&#39;))
       extensions = [&#39;foo&#39;]
 
-   You can also install extensions anywhere else on sys.path, e.g. in the site-packages directory.
+   这里也可以写文字。
 </pre></div>
 </div>
 </div>
