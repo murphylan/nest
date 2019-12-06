@@ -127,8 +127,6 @@ html_css_files = [
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'nestdoc'
 
-
-# -- Options for LaTeX output ------------------------------------------------
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_engine = 'pdflatex'
@@ -287,7 +285,7 @@ latex_elements = {
 
 }
 
-latex_logo = '_static/logo.jpg'
+latex_logo = '_static/sphinx.svg'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
