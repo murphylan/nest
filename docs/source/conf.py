@@ -85,9 +85,9 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-# html_theme = "sphinx_rtd_theme"
-html_theme = "yummy_sphinx_theme"
-html_theme_path = ["_themes/yummy_sphinx_theme", ]
+html_theme = "sphinx_rtd_theme"
+# html_theme = "yummy_sphinx_theme"
+# html_theme_path = ["_themes/yummy_sphinx_theme", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -95,13 +95,13 @@ html_theme_path = ["_themes/yummy_sphinx_theme", ]
 #
 # html_theme_options = {}
 html_theme_options = {
-    # 'logo_only': True,
+    'logo_only': True,
     # Toc options
-    # 'collapse_navigation': True,
-    # 'sticky_navigation': True,
-    # 'navigation_depth': 4,
-    # 'includehidden': True,
-    # 'titles_only': False
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
