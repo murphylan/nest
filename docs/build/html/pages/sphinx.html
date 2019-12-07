@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Sphinx培训 &mdash; nest  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. NestJS培训" href="nest.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/sphinx.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">速成项目：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="angular.html">1. Angular培训</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nest.html">2. NestJS培训</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Sphinx培训</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">3.1. Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1.1. 安装 Sphinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wiki">3.1.2. 搭建 wiki</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.3. 主题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">3.2. Wiki语法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gui">3.2.1. gui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">3.2.2. code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#note">3.2.3. note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color">3.2.4. color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#includefile">3.2.5. includefile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image">3.2.6. image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table">3.2.7. table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source">3.2.8. 隐藏source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#link">3.2.9. link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-css">3.2.10. Custom CSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chapters">3.2.11. chapters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#highlight">3.2.12. highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.2.13. 脚注</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error">3.2.14. Error</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#github">3.3. 部署到github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">3.4. 参考</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nest</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>3. Sphinx培训</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/sphinx.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sphinx">
+<h1>3. Sphinx培训<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h1>
+<p>你现在看到的页面就是用Sphinx搭建的wiki,  Sphinx是一个工具，可以轻松创建由Georg Brandl编写并根据BSD许可证授权的智能和美观文档，下面的内容就是详细的介绍它的使用。</p>
+<div class="section" id="id1">
+<h2>3.1. Sphinx<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>3.1.1. 安装 Sphinx<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/installation.html">http://www.sphinx-doc.org/en/master/usage/installation.html</a></li>
+<li><a class="reference external" href="https://www.sphinx.org.cn/usage/quickstart.html">https://www.sphinx.org.cn/usage/quickstart.html</a></li>
+</ul>
+</div>
+<div class="section" id="wiki">
+<h3>3.1.2. 搭建 wiki<a class="headerlink" href="#wiki" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sphinx-quickstart
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>3.1.3. 主题<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://sphinx-themes.org/">https://sphinx-themes.org/</a></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>3.2. Wiki语法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gui">
+<h3>3.2.1. gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
+<p><span class="guilabel"><span class="accelerator">C</span>ancel</span></p>
+<p><span class="menuselection">Start ‣ Programs</span></p>
+<p>Dec 07, 2019</p>
+<p><abbr title="last-in, first-out">LIFO</abbr>. （鼠标移上去，出现提示文字）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:guilabel:`&amp;Cancel`
+:menuselection:`Start --&gt; Programs`
+|today|
+:abbr:`LIFO (last-in, first-out)`.
+
+today_fmt = &#39;%Y-%m-%d&#39; #&#39;%B %d, %Y&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="code">
+<h3>3.2.2. code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p>所有支持的语言：<a class="reference external" href="http://pygments.org/languages/">http://pygments.org/languages/</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">ActionScript</span>
+   <span class="p">:</span><span class="n">emphasize</span><span class="o">-</span><span class="n">lines</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+   <span class="p">:</span><span class="n">linenos</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="note">
+<h3>3.2.3. note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">This is a simple <strong>seealso</strong> note.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a simple <strong>note</strong> note.</p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">This is a simple <strong>todo</strong> note. need add this in conf.py: todo_include_todos=True</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is a simple <strong>warning</strong> note. .. include:: ./todo-tutorial.md</p>
+</div>
+<div class="admonition- admonition">
+<p class="first admonition-title">文字随便写</p>
+<p>这里写文字。
+put into conf.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;exts&#39;</span><span class="p">))</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="last">这里也可以写文字。</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. seealso:: This is a simple **seealso** note.
+.. note:: This is a simple **note** note.
+.. todo:: This is a simple **todo** note. need add this in conf.py: todo_include_todos=True
+.. warning:: This is a simple **warning** note. .. include:: ./todo-tutorial.md
+
+.. admonition:: 文字随便写
+
+   这里写文字。
+   put into conf.py::
+
+      import sys, os
+      sys.path.append(os.path.abspath(&#39;exts&#39;))
+      extensions = [&#39;foo&#39;]
+
+   这里也可以写文字。
+</pre></div>
+</div>
+</div>
+<div class="section" id="color">
+<h3>3.2.4. color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
+<font color="red">Red word</font><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">raw</span><span class="p">::</span> <span class="n">html</span>
+
+   <span class="o">&lt;</span><span class="n">font</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="o">&gt;</span><span class="n">Red</span> <span class="n">word</span><span class="o">&lt;/</span><span class="n">font</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="includefile">
+<h3>3.2.5. includefile<a class="headerlink" href="#includefile" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">literalinclude</span><span class="p">::</span> <span class="o">../</span><span class="n">_static</span><span class="o">/</span><span class="n">forms</span><span class="o">-</span><span class="n">ex600</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">app</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">ts</span>
+   <span class="p">:</span><span class="n">linenos</span><span class="p">:</span>
+   <span class="p">:</span><span class="n">language</span><span class="p">:</span> <span class="n">typescript</span>
+   <span class="p">:</span><span class="n">lines</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">39</span>
+
+<span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">typescript</span>
+   <span class="p">:</span><span class="n">linenos</span><span class="p">:</span>
+
+   <span class="n">this</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">controls</span><span class="p">[</span><span class="s1">&#39;make&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">valueChanges</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+      <span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span> <span class="p">}</span>
+   <span class="p">);</span>
+   <span class="n">this</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">controls</span><span class="p">[</span><span class="s1">&#39;make&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">statusChanges</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+      <span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">value</span><span class="p">);</span> <span class="p">}</span>
+   <span class="p">);</span>
+
+<span class="o">..</span> <span class="n">include</span><span class="p">::</span> <span class="o">./</span><span class="n">Application</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="image">
+<h3>3.2.6. image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">image</span><span class="p">::</span> <span class="n">images</span><span class="o">/</span><span class="n">Figure19</span><span class="o">-</span><span class="mf">7.</span><span class="n">png</span>
+   <span class="p">:</span><span class="n">width</span><span class="p">:</span> <span class="mi">400</span><span class="n">px</span>
+   <span class="p">:</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span>
+   <span class="p">:</span><span class="n">height</span><span class="p">:</span> <span class="mi">200</span><span class="n">px</span>
+   <span class="p">:</span><span class="n">alt</span><span class="p">:</span> <span class="n">alternate</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="table">
+<h3>3.2.7. table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h3>
+<p>The following table lists some useful lexers (in no particular order).</p>
+<table border="1" class="colwidths-given docutils" id="id9">
+<caption><span class="caption-text">Frozen Delights!</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Treat</th>
+<th class="head">Quantity</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Albatross</td>
+<td>2.99</td>
+<td>On a stick!</td>
+</tr>
+<tr class="row-odd"><td>Crunchy Frog</td>
+<td>1.49</td>
+<td>If we took the bones out, it wouldn’t be
+crunchy, now would it?</td>
+</tr>
+<tr class="row-even"><td>Gannet Ripple</td>
+<td>1.99</td>
+<td>On a stick!</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="colwidths-given docutils" id="id10">
+<caption><span class="caption-text">Frozen Delights!</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Treat</th>
+<th class="head">Quantity</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Albatross</td>
+<td>2.99</td>
+<td>On a stick!</td>
+</tr>
+<tr class="row-odd"><td>Crunchy Frog</td>
+<td>1.49</td>
+<td><div class="first last line-block">
+<div class="line">If we took the bones out, it wouldn’t be</div>
+<div class="line">crunchy, now would it?</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>Gannet Ripple</td>
+<td>1.99</td>
+<td>On a stick!</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. csv-table:: Frozen Delights!
+   :header: &quot;Treat&quot;, &quot;Quantity&quot;, &quot;Description&quot;
+   :widths: 15, 10, 30
+
+   &quot;Albatross&quot;, 2.99, &quot;On a stick!&quot;
+   &quot;Crunchy Frog&quot;, 1.49, &quot;If we took the bones out, it wouldn&#39;t be
+   crunchy, now would it?&quot;
+   &quot;Gannet Ripple&quot;, 1.99, &quot;On a stick!&quot;
+
+.. list-table:: Frozen Delights!
+   :widths: 15 10 30
+   :header-rows: 1
+
+   * - Treat
+     - Quantity
+     - Description
+   * - Albatross
+     - 2.99
+     - On a stick!
+   * - Crunchy Frog
+     - 1.49
+     - If we took the bones out, it wouldn&#39;t be
+      crunchy, now would it?
+   * - Gannet Ripple
+     - 1.99
+     - On a stick!
+</pre></div>
+</div>
+</div>
+<div class="section" id="source">
+<h3>3.2.8. 隐藏source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_show_sourcelink</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="link">
+<h3>3.2.9. link<a class="headerlink" href="#link" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`link &lt;Python home page_&gt;`_
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-css">
+<h3>3.2.10. Custom CSS<a class="headerlink" href="#custom-css" title="Permalink to this headline">¶</a></h3>
+<p>custom stylesheet is _static/css/custom.css:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## conf.py</span>
+
+<span class="c1"># These folders are copied to the documentation&#39;s HTML output</span>
+<span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+
+<span class="c1"># These paths are either relative to html_static_path</span>
+<span class="c1"># or fully qualified paths (eg. https://...)</span>
+<span class="n">html_css_files</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s1">&#39;css/custom.css&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chapters">
+<h3>3.2.11. chapters<a class="headerlink" href="#chapters" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 及上划线表示部分</span>
+<span class="o">*</span> <span class="n">及上划线表示章节</span>
+<span class="o">=</span><span class="p">,</span> <span class="n">小章节</span>
+<span class="o">-</span><span class="p">,</span> <span class="n">子章节</span>
+<span class="o">^</span><span class="p">,</span> <span class="n">子章节的子章节</span>
+<span class="s2">&quot;, 段落</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="highlight">
+<h3>3.2.12. highlight<a class="headerlink" href="#highlight" title="Permalink to this headline">¶</a></h3>
+<p>The literal blocks are now highlighted as HTML, until a new directive is found.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>This is a text.<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The following directive changes the hightlight language to SQL.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mytable</span>
+</pre></div>
+</div>
+<p>From here on no highlighting will be done.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT * FROM mytable
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>3.2.13. 脚注<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>首先在正文中有个序号  <a class="footnote-reference" href="#id8" id="id6">[1]</a> ，然后在页面的尾部 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">rubric::</span> <span class="pre">脚注</span></code>。</p>
+</div>
+<div class="section" id="error">
+<h3>3.2.14. Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h3>
+<p>当执行make html命令时出现类似下面的错误信息时，是由于根目录的权限不够导致的，需要执行chmod 777 放开目录权限:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>reading sources... [100%] pages/netflix
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... WARNING: search index couldn&#39;t be loaded, but not all documents will be built: the index will be incomplete.
+done
+writing output... [100%] pages/netflix
+generating indices... genindex
+writing additional pages... search
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="github">
+<h2>3.3. 部署到github<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>在github上创建仓库，根目录下新建文件夹 <code class="docutils literal notranslate"><span class="pre">docs</span></code> 。</li>
+<li>拷贝wiki到 <code class="docutils literal notranslate"><span class="pre">docs</span></code> 目录下。</li>
+<li>提交代码。</li>
+<li>使用github账号登陆 <a class="reference external" href="https://readthedocs.org/_">Read the Docs</a> 网站。</li>
+<li>选择导入的github上创建的仓库。</li>
+<li>按照步骤一步步操作，最终build结果如下：</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/wiki_1.png"><img alt="../_images/wiki_1.png" src="../_images/wiki_1.png" style="width: 600px;" /></a>
+<ul class="simple">
+<li>link: <a class="reference external" href="https://nestjs.readthedocs.io/en/latest/index.html">https://nestjs.readthedocs.io/en/latest/index.html</a></li>
+<li>demo: <a class="reference external" href="https://github.com/murphylan/nest">https://github.com/murphylan/nest</a></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>3.4. 参考<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><a class="reference external" href="https://zh-sphinx-doc.readthedocs.io/en/latest/contents.html">https://zh-sphinx-doc.readthedocs.io/en/latest/contents.html</a></li>
+<li><a class="reference external" href="http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html#text-syntax-bold-italic-verbatim-and-special-characters">syntax</a></li>
+<li><a class="reference external" href="https://build-me-the-docs-please.readthedocs.io/en/latest/index.html">Using_Sphinx</a></li>
+<li><a class="reference external" href="https://devopstutodoc.readthedocs.io/en/0.1.0/documentation/doc_generators/sphinx/rest_sphinx/code/literalinclude/literalinclude.html#diff">directives</a></li>
+<li><a class="reference external" href="https://docs.readthedocs.io/en/stable/index.html">https://docs.readthedocs.io/en/stable/index.html</a></li>
+</ol>
+</div></blockquote>
+<p class="rubric">任何文字（如：脚注）</p>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[1]</a></td><td>演示脚注 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">include</span></code> directive, 点击左边的【1】迅速定位到上面的 <code class="docutils literal notranslate"><span class="pre">脚注</span></code> 处。</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="nest.html" class="btn btn-neutral" title="2. NestJS培训" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Murphy
+
+    </p>
+  </div>
+  Built with <a href="http://docedit.cn/">http://docedit.cn/</a> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
