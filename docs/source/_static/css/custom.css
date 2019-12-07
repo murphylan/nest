@@ -7,6 +7,10 @@
 .wy-nav-top{
     background:#FF5722
 }
+.wy-nav-side{
+    background:#455a64;
+    color: #ffee58
+}
 
 .wy-nav-side .ethical-rtd{
     display: none;

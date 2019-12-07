@@ -4,13 +4,13 @@
    contain the root `toctree` directive.
 
 IT培训
-================
+=============
 .. image:: pages/images/all-tech.svg
    :width: 800px
 
 
 FSD 速成班
-==================
+===============
 
 .. image:: pages/images/mean-stack-1.png
    :width: 600px
@@ -20,7 +20,7 @@ FSD 速成班
 
 在整个培训过程中，我们将构建一个个真实的全栈应用程序，向您教授全栈的所有基本和高级内容。
 
-
+|today|
 
 .. toctree::
    :maxdepth: 1
@@ -32,7 +32,7 @@ FSD 速成班
    pages/sphinx
 
 
-联系电话
-==================
+联系电话（微信同号）
+=======================
 
 * 15871352105

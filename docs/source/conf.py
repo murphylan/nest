@@ -206,3 +206,4 @@ epub_exclude_files = ['search.html']
 todo_include_todos = True
 html_favicon = 'favicon.ico'
 html_logo = 'sphinx.svg'
+today_fmt = '%Y-%m-%d' #'%B %d, %Y'
