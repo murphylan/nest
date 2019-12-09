@@ -11,6 +11,9 @@
     background:#455a64;
     color: #ffee58
 }
+.wy-menu-vertical header, .wy-menu-vertical p.caption{
+    color: #FFEB3B;
+}
 
 .wy-nav-side .ethical-rtd{
     display: none;
