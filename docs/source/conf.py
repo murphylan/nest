@@ -208,3 +208,4 @@ html_favicon = 'favicon.ico'
 html_logo = 'sphinx.svg'
 today_fmt = '%Y-%m-%d' #'%B %d, %Y'
 html_title = ''
+html_show_sphinx = False
