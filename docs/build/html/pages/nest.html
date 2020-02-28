@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. NestJS培训 &mdash; nest  documentation</title>
+  <title>2. NestJS培训</title>
   
 
   
@@ -89,8 +89,8 @@
 <li class="toctree-l1"><a class="reference internal" href="angular.html">1. Angular培训</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. NestJS培训</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 课件示例 第20课</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#passport">2.1.1. Passport介绍</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">2.1.2. 权限和用户模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1.1. 权限和用户模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passport">2.1.2. Passport介绍</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">2.1.3. 身份认证</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">2.1.4. Passport策略</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id5">2.1.4.1. 配置策略</a></li>
@@ -315,19 +315,8 @@
 <p>身份验证是大多数应用程序的重要组成部分。 有许多不同的方法和策略来处理身份验证。 每个项目采用的方法取决于其特定的应用程序要求。 本章将介绍几种可以适应各种不同要求的身份验证方法。为了演示，我们以下面的需求为例，逐步的讲解及实现：</p>
 <p>客户端将首先使用用户名和密码进行身份验证。一旦通过身份验证，服务器将发出 JWT，该 JWT 可以在后续请求的授权头中作为 token发送，以验证身份信息。我们还将创建一个受保护的路由，该路由仅对包含有效 JWT 的请求才可访问。</p>
 <p>我们将从第一个需求开始：对用户进行身份验证。 然后，我们将通过发布JWT扩展它。 最后，我们将创建一条受保护的路由，以检查请求上的有效JWT。</p>
-<div class="section" id="passport">
-<h3>2.1.1. Passport介绍<a class="headerlink" href="#passport" title="Permalink to this headline">¶</a></h3>
-<p>Passport是最流行的node.js身份验证库，它已成功被用于许多生产应用程序中。 将此工具与 Nest 框架集成起来非常简单，Nest 框架使用 <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/passport</span></code> 模块与之对应。 在较高级别，Passport 执行一系列步骤如下：</p>
-<ol class="arabic simple">
-<li>通过验证用户的”证”(例如：用户名/密码、JSON Web Token( JWT )或其他的身份令牌)来验证用户的身份。</li>
-<li>管理身份验证状态（通过发出可移植的令牌（例如JWT）或创建Express会话）</li>
-<li>将有关经过身份验证的用户的信息附加到Request对象，以在路由处理程序中进一步使用</li>
-</ol>
-<p>Passport具有丰富的策略（strategie）生态系统，可实施各种身份验证机制。 尽管概念上很简单，但是可以选择的Passport策略集很大，并且存在很多变化。 Passport将这些不同的步骤抽象为标准模式，而 <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/passport</span></code> 模块将这种模式包装并标准化为熟悉的Nest构造。</p>
-<p>在本章中，我们将使用这些功能强大且灵活的模块为RESTful API服务器实现完整的端到端身份验证解决方案。 可以使用此处介绍的概念来实施任何Passport策略，以自定义身份验证方案。 可以按照本章中的步骤构建完整的示例。</p>
-</div>
 <div class="section" id="id2">
-<h3>2.1.2. 权限和用户模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>2.1.1. 权限和用户模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>我们将从生成一个 AuthModule 开始，其中有一个 AuthService:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nest g module auth
 $ nest g service auth
@@ -483,6 +472,17 @@ $ nest g service users
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">AuthModule</span> <span class="p">{}</span>
 </pre></div>
 </td></tr></table></div>
+</div>
+<div class="section" id="passport">
+<h3>2.1.2. Passport介绍<a class="headerlink" href="#passport" title="Permalink to this headline">¶</a></h3>
+<p>Passport是最流行的node.js身份验证库，它已成功被用于许多生产应用程序中。 将此工具与 Nest 框架集成起来非常简单，Nest 框架使用 <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/passport</span></code> 模块与之对应。 在较高级别，Passport 执行一系列步骤如下：</p>
+<ol class="arabic simple">
+<li>通过验证用户的”证”(例如：用户名/密码、JSON Web Token( JWT )或其他的身份令牌)来验证用户的身份。</li>
+<li>管理身份验证状态（通过发出可移植的令牌（例如JWT）或创建Express会话）</li>
+<li>将有关经过身份验证的用户的信息附加到Request对象，以在路由处理程序中进一步使用</li>
+</ol>
+<p>Passport具有丰富的策略（strategie）生态系统，可实施各种身份验证机制。 尽管概念上很简单，但是可以选择的Passport策略集很大，并且存在很多变化。 Passport将这些不同的步骤抽象为标准模式，而 <code class="docutils literal notranslate"><span class="pre">&#64;nestjs/passport</span></code> 模块将这种模式包装并标准化为熟悉的Nest构造。</p>
+<p>在本章中，我们将使用这些功能强大且灵活的模块为RESTful API服务器实现完整的端到端身份验证解决方案。 可以使用此处介绍的概念来实施任何Passport策略，以自定义身份验证方案。 可以按照本章中的步骤构建完整的示例。</p>
 </div>
 <div class="section" id="id3">
 <h3>2.1.3. 身份认证<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
@@ -1073,8 +1073,7 @@ $ # result -&gt; {&quot;userId&quot;:1,&quot;username&quot;:&quot;john&quot;}
         &copy; Copyright 2019, Murphy
 
     </p>
-  </div>
-  Built with <a href="http://docedit.cn/">http://docedit.cn/</a> 
+  </div> 
 
 </footer>
 

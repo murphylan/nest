@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Sphinx培训 &mdash; nest  documentation</title>
+  <title>3. Sphinx培训</title>
   
 
   
@@ -105,10 +105,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#source">3.2.8. 隐藏source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#link">3.2.9. link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#custom-css">3.2.10. Custom CSS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chapters">3.2.11. chapters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#highlight">3.2.12. highlight</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">3.2.13. 脚注</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#error">3.2.14. Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#html">3.2.11. Html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chapters">3.2.12. chapters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#highlight">3.2.13. highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.2.14. 脚注</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error">3.2.15. Error</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#github">3.3. 部署到github</a></li>
@@ -208,7 +209,7 @@
 <h3>3.2.1. gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
 <p><span class="guilabel"><span class="accelerator">C</span>ancel</span></p>
 <p><span class="menuselection">Start ‣ Programs</span></p>
-<p>2019-12-10</p>
+<p>2020-02-28</p>
 <p><abbr title="last-in, first-out">LIFO</abbr>. （鼠标移上去，出现提示文字）</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:guilabel:`&amp;Cancel`
 :menuselection:`Start --&gt; Programs`
@@ -435,8 +436,16 @@ crunchy, now would it?</td>
 </pre></div>
 </div>
 </div>
+<div class="section" id="html">
+<h3>3.2.11. Html<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_favicon</span> <span class="o">=</span> <span class="s1">&#39;favicon.ico&#39;</span>
+<span class="n">html_logo</span> <span class="o">=</span> <span class="s1">&#39;sphinx.svg&#39;</span>
+<span class="n">html_title</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="chapters">
-<h3>3.2.11. chapters<a class="headerlink" href="#chapters" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.12. chapters<a class="headerlink" href="#chapters" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 及上划线表示部分</span>
 <span class="o">*</span> <span class="n">及上划线表示章节</span>
 <span class="o">=</span><span class="p">,</span> <span class="n">小章节</span>
@@ -447,7 +456,7 @@ crunchy, now would it?</td>
 </div>
 </div>
 <div class="section" id="highlight">
-<h3>3.2.12. highlight<a class="headerlink" href="#highlight" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.13. highlight<a class="headerlink" href="#highlight" title="Permalink to this headline">¶</a></h3>
 <p>The literal blocks are now highlighted as HTML, until a new directive is found.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>This is a text.<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
@@ -464,11 +473,11 @@ crunchy, now would it?</td>
 </div>
 </div>
 <div class="section" id="id5">
-<h3>3.2.13. 脚注<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.14. 脚注<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>首先在正文中有个序号  <a class="footnote-reference" href="#id8" id="id6">[1]</a> ，然后在页面的尾部 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">rubric::</span> <span class="pre">脚注</span></code>。</p>
 </div>
 <div class="section" id="error">
-<h3>3.2.14. Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.15. Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h3>
 <p>当执行make html命令时出现类似下面的错误信息时，是由于根目录的权限不够导致的，需要执行chmod 777 放开目录权限:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>reading sources... [100%] pages/netflix
 looking for now-outdated files... none found
@@ -541,8 +550,7 @@ writing additional pages... search
         &copy; Copyright 2019, Murphy
 
     </p>
-  </div>
-  Built with <a href="http://docedit.cn/">http://docedit.cn/</a> 
+  </div> 
 
 </footer>
 

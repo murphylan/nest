@@ -231,6 +231,14 @@ custom stylesheet is _static/css/custom.css::
       'css/custom.css',
    ]
 
+Html
+-----------
+::
+
+   html_favicon = 'favicon.ico'
+   html_logo = 'sphinx.svg'
+   html_title = ''
+
 
 chapters
 ---------------
