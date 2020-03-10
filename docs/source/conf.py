@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'nest'
-copyright = '2019, Murphy'
+copyright = '鄂ICP备18005625号'
 author = 'Murphy'
 
 # The short X.Y version
