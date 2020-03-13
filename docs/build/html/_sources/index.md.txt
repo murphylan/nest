@@ -1,23 +1,16 @@
-.. java documentation master file, created by
-   sphinx-quickstart on Mon Oct 28 13:24:06 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 IT培训
-=============
+==============================
 .. image:: pages/images/all-tech.svg
-   :width: 800px
-
+   :align: center
 
 ---------
 
 
-FSD 速成班
-===============
+全栈开发培训速成班
+==============================
 
 .. image:: pages/images/mean-stack-1.png
-   :width: 600px
-
+   :align: center
 
 我们开展的FSD(Full Stack Development)全栈开发培训课程是一种高质量的、经过实战考验的培训体验，带有最新的课件，可以上门到您的公司， 也可以作为公开课程在线授课。
 
@@ -28,15 +21,13 @@ FSD 速成班
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
-   :caption: 速成项目：
+   :hidden:
 
    pages/angular
    pages/nest
    pages/sphinx
 
 
----------
 
 联系电话（微信同号）
 =======================

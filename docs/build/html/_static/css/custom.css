@@ -1,32 +1,20 @@
-.wy-nav-content{
-    max-width: 100%
-}
-.wy-side-nav-search {
-    background-color:#FF5722
-}
-.wy-nav-top{
-    background:#FF5722
-}
-.wy-nav-side{
-    background:#455a64;
-    color: #ffee58
-}
-.wy-menu-vertical header, .wy-menu-vertical p.caption{
-    color: #FFEB3B;
+div.body{
+    max-width: 100%;
 }
 
-.wy-nav-side .ethical-rtd{
-    display: none;
+.navbar-inverse{
+    background-color: slateblue
 }
 
-.wy-side-nav-search>a, .wy-side-nav-search .wy-dropdown>a{
-    color: yellow;
+table.cloudplan tbody tr:nth-child(2) {color: red; background-color: yellow}
+
+.wy-table-odd td, .wy-table-striped tr:nth-child(2) td, .rst-content table.cloudplan:not(.field-list) tr:nth-child(2) td{
+    color: red; background-color: yellow; font-weight:bold
 }
 
-.wy-side-nav-search>a.icon img.logo, .wy-side-nav-search .wy-dropdown>a.icon img.logo{
-    margin-top:0
-}
-
-.wy-side-nav-search>a img.logo, .wy-side-nav-search .wy-dropdown>a img.logo{
-    width:45%
+.text-large{
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: x-large;
+    color: red;
 }
