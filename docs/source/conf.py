@@ -21,7 +21,7 @@ import sphinx_bootstrap_theme
 # -- Project information -----------------------------------------------------
 
 project = '全栈培训'
-copyright = '鄂ICP备18005625号'
+copyright = '鄂ICP备18005625号 培训热线：15871352105'
 author = 'Murphy'
 
 # The short X.Y version
@@ -108,16 +108,18 @@ html_theme_options = {
     #    (name, "http://example.com", True) # arbitrary absolute url
     # Note the "1" or "True" value above as the third argument to indicate
     # an arbitrary url.
-    # 'navbar_links': [
-    #     ("OpenShift", "https://pages.github.ibm.com/feiye/openshift/index.html", True),
-    #     ("Angular", "https://pages.github.ibm.com/lanzejun/angular-talent/", True),
-    # ],
+    'navbar_links': [
+        ("Angular", "pages/angular"),
+        ("Nest.JS", "pages/nest"),
+        ("Spring Cloud", "pages/sphinx"),
+        ("课件示例", "pages/coause"),
+    ],
 
     # Render the next and previous page links in navbar. (Default: true)
     'navbar_sidebarrel': False,
 
     # Render the current pages TOC in the navbar. (Default: true)
-    'navbar_pagenav': True,
+    'navbar_pagenav': False,
 
     # Tab name for the current pages TOC. (Default: "Page")
     'navbar_pagenav_name': "当前页面",
@@ -133,7 +135,7 @@ html_theme_options = {
     # will break.
     #
     # Values: "true" (default) or "false"
-    'globaltoc_includehidden': "true",
+    'globaltoc_includehidden': "false",
 
     # HTML navbar class (Default: "navbar") to attach to <div> element.
     # For black navbar, do "navbar navbar-inverse"

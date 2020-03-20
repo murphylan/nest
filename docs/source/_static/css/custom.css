@@ -3,7 +3,7 @@ div.body{
 }
 
 .navbar-inverse{
-    background-color: slateblue
+    background-color: dimgray
 }
 
 table.cloudplan tbody tr:nth-child(2) {color: red; background-color: yellow}
